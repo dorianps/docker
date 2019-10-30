@@ -1,4 +1,4 @@
 #!/bin/bash
 
 TODAY=$(date +"%Y%m%d")
-docker build --label BuildDate="$(date)" --rm -t dorianps/antsr:${TODAY} ../
+docker build --label BuildDate="$(date)" --rm -t dorianps/antsr:${TODAY} .
