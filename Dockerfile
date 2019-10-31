@@ -33,12 +33,17 @@ libgit2-dev \
 &&  tar -zxf cmake-3.15.4.tar.gz \
 &&  cd cmake-3.15.4 \
 &&  ./configure \
+&& NOW=$(date +%s) && DIFF=$(( $NOW - $START )) && echo "Elapsed $DIFF seconds..." \
 &&  make \
+&& NOW=$(date +%s) && DIFF=$(( $NOW - $START )) && echo "Elapsed $DIFF seconds..." \
 &&  make install \
+&& NOW=$(date +%s) && DIFF=$(( $NOW - $START )) && echo "Elapsed $DIFF seconds..." \
 && cd .. \
 && rm -Rf cmake* \
 && Rscript -e "install.packages('devtools')" \
+&& NOW=$(date +%s) && DIFF=$(( $NOW - $START )) && echo "Elapsed $DIFF seconds..." \
 && Rscript -e "install.packages(c('misc3d', 'pixmap'))" \
+&& NOW=$(date +%s) && DIFF=$(( $NOW - $START )) && echo "Elapsed $DIFF seconds..." \
 && Rscript -e "devtools::install_github('ANTsX/ANTsR')" \
 \
 && NOW=$(date +%s) && DIFF=$(( $NOW - $START )) && echo "Elapsed $DIFF seconds..." \
