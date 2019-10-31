@@ -9,8 +9,12 @@ cat /etc/*release \
 && echo "Building user:" `whoami` \
 && echo "Number of cores:" $(nproc) \
 \
+&& START=$(date +%s) \
+\
 && apt-get install -f \
 && apt update && apt upgrade -y \
+\
+&& NOW=$(date +%s) && DIFF=$(( $NOW - $START )) && echo "Elapsed $DIFF seconds..." \
 \
 && apt install -y \
 curl \
@@ -22,6 +26,8 @@ libssl-dev \
 libcurl4-gnutls-dev \
 libssh2-1-dev \
 libgit2-dev \
+\
+&& NOW=$(date +%s) && DIFF=$(( $NOW - $START )) && echo "Elapsed $DIFF seconds..." \
 \
 && wget https://github.com/Kitware/CMake/releases/download/v3.15.4/cmake-3.15.4.tar.gz \
 &&  tar -zxf cmake-3.15.4.tar.gz \
@@ -35,8 +41,13 @@ libgit2-dev \
 && Rscript -e "install.packages(c('misc3d', 'pixmap'))" \
 && Rscript -e "devtools::install_github('ANTsX/ANTsR')" \
 \
+&& NOW=$(date +%s) && DIFF=$(( $NOW - $START )) && echo "Elapsed $DIFF seconds..." \
+\
 USER rstudio \
 && mkdir -p /home/rstudio/mydata \
 && echo "setwd('/home/rstudio/mydata')" > /home/rstudio/.Rprofile \
 && echo "sessioninfo::package_info(c('ANTsR','ANTsRCore','ITKR'), dependencies = FALSE)" >> /home/rstudio/.Rprofile \
-&& echo "Sys.setenv(ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS = system('nproc', intern=TRUE) )" >> /home/rstudio/.Rprofile
+&& echo "Sys.setenv(ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS = system('nproc', intern=TRUE) )" >> /home/rstudio/.Rprofile \
+\
+&& NOW=$(date +%s) && DIFF=$(( $NOW - $START )) && echo "Elapsed $DIFF seconds..."
+
