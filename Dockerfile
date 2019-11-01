@@ -29,16 +29,8 @@ libgit2-dev \
 \
 && NOW=$(date +%s) && DIFF=$(( $NOW - $START )) && echo "Elapsed $DIFF seconds..." \
 \
-&& wget https://github.com/Kitware/CMake/releases/download/v3.15.4/cmake-3.15.4.tar.gz \
-&&  tar -zxf cmake-3.15.4.tar.gz \
-&&  cd cmake-3.15.4 \
-&&  ./configure \
-&& NOW=$(date +%s) && DIFF=$(( $NOW - $START )) && echo "Elapsed $DIFF seconds..." \
-&&  make \
-&& NOW=$(date +%s) && DIFF=$(( $NOW - $START )) && echo "Elapsed $DIFF seconds..." \
-&&  make install \
-&& NOW=$(date +%s) && DIFF=$(( $NOW - $START )) && echo "Elapsed $DIFF seconds..." \
-&& cd .. \
+&& wget https://github.com/Kitware/CMake/releases/download/v3.15.5/cmake-3.15.5-Linux-x86_64.sh \
+&& sh cmake-3.15.5-Linux-x86_64.sh --skip-license \
 && rm -Rf cmake* \
 && Rscript -e "install.packages('devtools')" \
 && NOW=$(date +%s) && DIFF=$(( $NOW - $START )) && echo "Elapsed $DIFF seconds..." \
@@ -48,11 +40,16 @@ libgit2-dev \
 \
 && NOW=$(date +%s) && DIFF=$(( $NOW - $START )) && echo "Elapsed $DIFF seconds..." \
 \
-USER rstudio \
+&& USER rstudio \
 && mkdir -p /home/rstudio/mydata \
+&& echo -e 'ANTsR\nANTsRCore\nITKR' > /home/rstudio/.Rpackagedisplay \
 && echo "setwd('/home/rstudio/mydata')" > /home/rstudio/.Rprofile \
-&& echo "sessioninfo::package_info(c('ANTsR','ANTsRCore','ITKR'), dependencies = FALSE)" >> /home/rstudio/.Rprofile \
 && echo "Sys.setenv(ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS = system('nproc', intern=TRUE) )" >> /home/rstudio/.Rprofile \
+&& echo "nthreads = system('echo $(nproc)', intern=TRUE)" >> /home/rstudio/.Rprofile \
+&& echo "cat(paste('CPU cores/threads available:', nthreads, '\n'))" >> /home/rstudio/.Rprofile \
+&& echo "cat('Memory available:\n')" >> /home/rstudio/.Rprofile \
+&& echo "system('free -h')" >> /home/rstudio/.Rprofile \
+&& echo "sessioninfo::package_info( read.table('/home/rstudio/.Rpackagedisplay', as.is=TRUE)$V1, dependencies = FALSE)" >> /home/rstudio/.Rprofile \
 \
 && NOW=$(date +%s) && DIFF=$(( $NOW - $START )) && echo "Elapsed $DIFF seconds..."
 
