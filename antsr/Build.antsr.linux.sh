@@ -1,6 +1,7 @@
 #!/bin/bash
 
 # today's date in GMT timezone
+USERNAME="dorianps"
 TAGVERSION=$(date -u +'%Y%m%d') 
 BUILDDATE=$(date -u +'%Y-%m-%dT%H:%M:%SZ')
 DOCKERFOLDER=$( cd "$( dirname "${BASH_SOURCE[0]}" )" >/dev/null 2>&1 && pwd )
@@ -9,15 +10,15 @@ cd $DOCKERFOLDER
 
 # build the docker image, tag with today's date 
 docker build --label org.label-schema.version=${TAGVERSION} \
---label org.label-schema.build-date=${BUILDDATE} --rm -t dorianps/antsr:latest -f Dockerfile.antsr .
-docker tag dorianps/antsr:latest dorianps/antsr:${TAGVERSION}
+--label org.label-schema.build-date=${BUILDDATE} --rm -t ${USERNAME}/antsr:latest -f Dockerfile.antsr .
+docker tag ${USERNAME}/antsr:latest ${USERNAME}/antsr:${TAGVERSION}
 
 
 if [[ "$*" == "--push" ]]
 then
-  # push the images in DockerHub registry (if you have permissions)
-  docker push dorianps/antsr:${TODAY}
-  docker push dorianps/antsr:latest
+  # push the images in DockerHub registry
+  docker push ${USERNAME}/antsr:${TODAY}
+  docker push ${USERNAME}/antsr:latest
 else
   echo "Skipping push to docker registry"
 fi
