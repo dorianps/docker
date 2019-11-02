@@ -2,7 +2,11 @@
 # using the devtools method to build from source.
 FROM rocker/rstudio:3.6.1
 
-LABEL maintainer='Dorian Pustina'
+LABEL maintainer="Dorian Pustina"
+LABEL org.label-schema.maintainer="Dorian Pustina"
+LABEL org.label-schema.url="https://github.com/ANTsX/ANTsR"
+LABEL org.label-schema.vcs-url="https://github.com/ANTsX/ANTsR"
+LABEL org.label-schema.vendor=""
 
 RUN \
 cat /etc/*release \
@@ -40,16 +44,16 @@ libgit2-dev \
 \
 && NOW=$(date +%s) && DIFF=$(( $NOW - $START )) && echo "Elapsed $DIFF seconds..." \
 \
-&& USER rstudio \
+&& sed -i 's/rocker\/rstudio/dorianps\/antsr/g' /etc/cont-init.d/userconf \
 && mkdir -p /home/rstudio/mydata \
-&& echo -e 'ANTsR\nANTsRCore\nITKR' > /home/rstudio/.Rpackagedisplay \
+&& echo "ANTsR" > /home/rstudio/.Rpackagedisplay \
+&& echo "ANTsRCore" >> /home/rstudio/.Rpackagedisplay \
+&& echo "ITKR" >> /home/rstudio/.Rpackagedisplay \
 && echo "setwd('/home/rstudio/mydata')" > /home/rstudio/.Rprofile \
 && echo "Sys.setenv(ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS = system('nproc', intern=TRUE) )" >> /home/rstudio/.Rprofile \
-&& echo "nthreads = system('echo $(nproc)', intern=TRUE)" >> /home/rstudio/.Rprofile \
-&& echo "cat(paste('CPU cores/threads available:', nthreads, '\n'))" >> /home/rstudio/.Rprofile \
-&& echo "cat('Memory available:\n')" >> /home/rstudio/.Rprofile \
-&& echo "system('free -h')" >> /home/rstudio/.Rprofile \
-&& echo "sessioninfo::package_info( read.table('/home/rstudio/.Rpackagedisplay', as.is=TRUE)$V1, dependencies = FALSE)" >> /home/rstudio/.Rprofile \
-\
-&& NOW=$(date +%s) && DIFF=$(( $NOW - $START )) && echo "Elapsed $DIFF seconds..."
+&& echo "nthreads = system('nproc', intern=TRUE)" >> /home/rstudio/.Rprofile \
+&& echo "cat(paste('CPU cores/threads available:', nthreads, '\\\n'))" >> /home/rstudio/.Rprofile \
+&& echo "sessioninfo::package_info( utils::read.table('/home/rstudio/.Rpackagedisplay', as.is=TRUE)\$V1, dependencies = FALSE)" >> /home/rstudio/.Rprofile \
+&& chown -R rstudio:rstudio /home/rstudio/
+
 
