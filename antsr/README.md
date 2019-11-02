@@ -34,7 +34,7 @@ You will see a command line prompt asking for a password, then the browser will 
 ---
 
 ### How do I check which ANTsR version is installed in the container?
-The following command will print the commits installed for ANTsR, ANTsRCore, ITKR:
+The following command will print the exact commit installed for ANTsR, ANTsRCore, ITKR:
 ```
 docker run -u 0 --rm dorianps/antsr:latest Rscript /home/rstudio/.Rprofile
 ```
