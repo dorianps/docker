@@ -25,7 +25,11 @@ Build.antsr.windows.bat
 The script will run a fresh build of the ANTsR container with the latest ANTsR, ANTsRCore, ITKR packages. The container is named `dorianps/antsr:latest` in your local machine. Estimated build time ~1.7hrs on Intel(R) Core(TM) i7-7660U CPU @ 2.50GHz.
 
 #### Run
-Double click the file `Run.antsr.windows.bat`. You will see a command line prompt asking for a password, then the browser will open with the RStudio login page. When you are done, please press enter at the command line prompt to stop the ANTsR docker container. At the first run, the docker container will be donwloaded from DockerHub [~3Gb]  (if you did not build the container locally).
+Double click the file:
+```
+Run.antsr.windows.bat
+```
+You will see a command line prompt asking for a password, then the browser will open with the RStudio login page. When you are done, please press enter at the command line prompt to stop the ANTsR docker container. At the first run, the docker container will be donwloaded from DockerHub [~3Gb]  (if you did not build the container locally).
 
 ---
 
