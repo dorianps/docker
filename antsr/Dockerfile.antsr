@@ -51,9 +51,12 @@ libgit2-dev \
 && echo "ITKR" >> /home/rstudio/.Rpackagedisplay \
 && echo "setwd('/home/rstudio/mydata')" > /home/rstudio/.Rprofile \
 && echo "Sys.setenv(ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS = system('nproc', intern=TRUE) )" >> /home/rstudio/.Rprofile \
-&& echo "nthreads = system('nproc', intern=TRUE)" >> /home/rstudio/.Rprofile \
-&& echo "cat(paste('CPU cores/threads available:', nthreads, '\\\n'))" >> /home/rstudio/.Rprofile \
-&& echo "sessioninfo::package_info( utils::read.table('/home/rstudio/.Rpackagedisplay', as.is=TRUE)\$V1, dependencies = FALSE)" >> /home/rstudio/.Rprofile \
+&& echo "message(paste('CPU cores/threads available:', system('nproc', intern=TRUE), '\\\n'))" >> /home/rstudio/.Rprofile \
+&& echo "tmp = utils::capture.output( sessioninfo::package_info( utils::read.table('/home/rstudio/.Rpackagedisplay', as.is=TRUE)$V1, dependencies = FALSE) )
+" >> /home/rstudio/.Rprofile \
+&& echo "for (line in tmp) message(line)" >> /home/rstudio/.Rprofile \
+&& echo "rm(list=c('line','tmp'))" >> /home/rstudio/.Rprofile \
+&& echo "suppressPackageStartupMessages(library(ANTsR))" >> /home/rstudio/.Rprofile \
 && chown -R rstudio:rstudio /home/rstudio/
 
 
