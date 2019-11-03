@@ -3,7 +3,7 @@ REM Script:  v1 (2019-11-02)
 REM Author   Dorian Pustina
 setlocal
 
-set /p MYPASSWORD="Select a session password: "
+set /p MYPASSWORD="Select a session password for rstudio: "
 
 set VOLUMEMOUNT=
 
