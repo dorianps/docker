@@ -45,7 +45,7 @@ docker pull dorianps/antsr:latest
 ```
 The command will download the container only if there is a newer version.
     
-Note: The container with the tag `:latest` available online may contain an ANTsR version more recent and different from what you had on your computer. This means that the analyses may not produce the same results after you pull the latest update. To have reproducible results use a specific tag (i.e., `dorianps/antsr:20191104`) or avoid updating the `:latest` container. The date and version of the R packages installed are shown when you start RStudio, or with the command:
+*Note: The container with the tag `:latest` available online may contain an ANTsR version more recent and different from what you had on your computer. This means that the analyses may not produce the same results after you pull the latest update. To have reproducible results use a specific tag (i.e., `dorianps/antsr:20191104`) or avoid updating the `:latest` container. The date and version of the R packages installed are shown when you start RStudio, or with the command:*
 ```
 docker run -u 0 --rm dorianps/antsr:latest Rscript /home/rstudio/.Rprofile
 ```
