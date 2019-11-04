@@ -12,11 +12,11 @@ if /I "%askmountfolder%"=="Y" goto :choosefolder
 
 :runcontainer
 docker container run %VOLUMEMOUNT% -e PASSWORD=%MYPASSWORD% -p 8787:8787 -d --name myantsr --rm dorianps/antsr:latest
-echo "Browser will open shortly. Enter username: rstudio pass: %MYPASSWORD%"
+echo Browser will open shortly. Enter username: "rstudio" pass: "%MYPASSWORD%"
 timeout 5
 rundll32 url.dll,FileProtocolHandler http://localhost:8787
 set /p dummy="Press enter to stop the container..."
-echo "Stopping container..."
+echo Stopping container...
 docker stop myantsr
 timeout 5
 exit /B
