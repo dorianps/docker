@@ -49,7 +49,7 @@ No, to get the latest container from DockerHub (and overwrite your local one) ru
 ```
 docker pull dorianps/antsr:latest
 ```
-The command will donwload the new container only if there is a newer version.
+The command will download the new container only if there is a newer version.
   
 Note: unless you start using a spcific tag (i.e., `dorianps/antsr:20191104`), the container with the tag `:latest` may contain a substantially different ANTsR version from what your local container had. This means that the analyses may not produce the same results, or some commands have changed. To have reproducible results use a specific tag or avoid updating the `:latest` container. The date and version of the main R packages installed are shown when you start RStudio, or with the command shown in the previous question.
 
