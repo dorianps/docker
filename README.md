@@ -27,7 +27,7 @@ The script will build the ANTsR container on your machine using the latest ANTsR
 ---
 
 
-## Q & A
+# Q & A
 
 ### How do I check which ANTsR version is installed in the container?
 The following command will print the semantic versions and git commits for all relevant packages:
