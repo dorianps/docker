@@ -34,6 +34,9 @@ You will see a command line prompt asking a couple of questions, then the browse
 
 
 ---
+---
+---
+## Q & A
 
 ### How do I check which ANTsR version is installed in the container?
 The following command will print the exact commit installed for ANTsR, ANTsRCore, ITKR:
@@ -41,11 +44,13 @@ The following command will print the exact commit installed for ANTsR, ANTsRCore
 docker run -u 0 --rm dorianps/antsr:latest Rscript /home/rstudio/.Rprofile
 ```
 
-### Is the donwloaded container updated automatically?
-No, you need to run this command if you want to get the latest container from DockerHub:
+### Is the downloaded container updated automatically?
+No, to get the latest container from DockerHub and overwrite your local one run:
 ```
 docker pull dorianps/antsr:latest
 ```
+The command will donwload the new container only if there is a newer version.
+  
 Note: unless you start using a spcific tag (i.e., `dorianps/antsr:20191104`), the container with the tag `:latest` may change significantly and your results may not be the same when you update (i.e., 1 year later). Use a specific tag when running a study, or avoid updating the `:latest` container. To find out which ANTsR version is installed in the `:latest` container, use the command shown in the previous question.
 
 ### I installed some software but they are gone when I start the container again.
