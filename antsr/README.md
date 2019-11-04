@@ -14,7 +14,7 @@ After that, download the files from this repository on your computer.
 You will see a command line prompt asking a couple of questions, then the browser will open with the RStudio login page. When you are done, please press [enter] at the command line prompt to stop the ANTsR docker container. If you did not build the container yourself, it will be downloaded from DockerHub [~3Gb]. The container being started is the one with the tag `:latest`, which will contain the most up to date ANTsR build if you just downloaded it.
 
 ## Build
-*Note: this build step is not required to run the container, you can use the prepared container available in DockerHub.*   
+*Note: this build step is not required to run the container, but you can use these scripts to build it yourself.*   
 ##### Windows: double click `Build.antsr.windows.bat`
 ##### Linux: `sh Build.antsr.linux.sh`
 The script will build the ANTsR container on your machine using the latest ANTsR, ANTsRCore, ITKR from github. If you add the argument `--push` in linux it will push the image online at the DockerHub registry (you can change your DockerHub username in the script). Estimated build time varies between ~1hr (Linux with Intel(R) Xeon(R) Gold 6142 CPU @ 2.60GHz) and 1.7hr (Windows with Intel(R) Core(TM) i7-7660U CPU @ 2.50GHz).
