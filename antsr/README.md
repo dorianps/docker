@@ -10,7 +10,7 @@ Double click the file:
 ```
 Build.antsr.windows.bat
 ```
-The script will build the ANTsR container on your machine using the latest ANTsR, ANTsRCore, ITKR from github. The container is named `dorianps/antsr:latest` in your local machine. Estimated build time ~1.7hrs on Intel(R) Core(TM) i7-7660U CPU @ 2.50GHz.
+The script will build the ANTsR container on your machine using the latest ANTsR, ANTsRCore, ITKR from github. The container is named `dorianps/antsr:latest` in your local machine. Estimated build time ~1.7hrs on Intel(R) Core(TM) i7-7660U CPU @ 2.50GHz.   
 Note, this build step is not required to run the container, you can pull the container we have prepared from DockerHub using the run script below.
 
 #### Run
