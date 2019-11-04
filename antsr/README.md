@@ -45,12 +45,15 @@ docker run -u 0 --rm dorianps/antsr:latest Rscript /home/rstudio/.Rprofile
 ```
 
 ### Is the downloaded container updated automatically?
-No, to get the latest container from DockerHub (and overwrite your local one) run:
+No, the local docker image you get the first time will not be updated automatically.
+
+### How do I update the local docker image?
+To get the latest docker image from DockerHub (and overwrite your local one) run:
 ```
 docker pull dorianps/antsr:latest
 ```
 The command will download the container only if there is a newer version.
-  
+    
 Note: unless you start using a spcific tag (i.e., `dorianps/antsr:20191104`), the container with the tag `:latest` may contain an ANTsR version different from what you previously had. This means that the analyses may not produce the same results, or some commands have changed from the time you obtained the container the first time. To have reproducible results use a specific tag or avoid updating the `:latest` container. The date and version of the main R packages installed are shown when you start RStudio, or with the command shown in the previous question.
 
 ### I can't find the packages I installed after restarting the container.
