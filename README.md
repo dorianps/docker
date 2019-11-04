@@ -53,8 +53,8 @@ The container you start with the above scripts will be stopped and deleted at th
 ### Will I be able to easily retrieve the data saved in the container?
 Not if you save the data in the container itself. Use the folder mounted from your host system to store files, you should see it in the container path:  `/home/rstudio/mydata`. Data saved there is actually saved on your computer and will not be deleted when the container is stopped.
 
-### Is ANTsR used from docker containers slower then ANTsR installed in the host system?
-I have not tested ANTsR yet, but there is plenty of evidence showing that the speed of processing of containers is similar to the host system itself. This is different from virtual machines which are substantially slower than containers or the host system. This is also one of the reasons containers are being used everywhere: they are quick to start, they create an isolated reproducible environment, and they perform as fast as the host machine.
+### Is ANTsR slower when running in a docker container compared to running on a real computer?
+I have not tested ANTsR yet, but there is plenty of evidence showing that processes running in containers are almost as fast as running in the host system. This is different from virtual machines which processes slower than the host system. This is also one of the reasons why containers are being used massively: they are quick to start, they provide an isolated reproducible environment, and they run processes as fast as the host machine.
 
 ### How can I limit the amount of CPUs and memory used by the container?
 By default, docker gives every container an unlimited amount of resources in linux. If your machine has 30 CPU cores, the container will see 30 CPU cores.     
