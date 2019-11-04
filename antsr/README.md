@@ -3,15 +3,20 @@ Contains tools to build or run docker containers with ANTsR, LINDA, or LESYMAP i
    
 *All the instructions below are valid if you go in the respective folder and substitute [antsr] with the other package name.*
 
+---
+
 ## Prepare
 You must have Docker installed to build and run docker images. In linux you can get docker-ce, in Windows you can get [Docker Desktop](https://www.docker.com/products/docker-desktop).
 After that, download the files from this repository on your computer.
 
+---
 
 ## Run
 ##### Windows: double click `Run.antsr.windows.bat`
 ##### Linux: `sh Run.antsr.linux.sh`
 You will see a command line prompt asking a couple of questions, then the browser will open with the RStudio login page. When you are done, please press [enter] at the command line prompt to stop the ANTsR docker container. If you did not build the container yourself, it will be downloaded from DockerHub [~3Gb]. The container being started is the one with the tag `:latest`, which will contain the most up to date ANTsR build if you just downloaded it.
+
+---
 
 ## Build
 *Note: this build step is not required to run the container, but you can use these scripts to build it yourself if the online version is too old.*   
