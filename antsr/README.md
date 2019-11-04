@@ -10,8 +10,8 @@ Double click the file:
 ```
 Build.antsr.windows.bat
 ```
-The script will build the ANTsR container on your machine using the latest ANTsR, ANTsRCore, ITKR from github. The container is named `dorianps/antsr:latest` in your local machine. Estimated build time ~1.7hrs on Intel(R) Core(TM) i7-7660U CPU @ 2.50GHz.   
-Note, this build step is not required to run the container, you can pull the container we have prepared from DockerHub using the run script below.
+The script will build the ANTsR container on your machine using the latest ANTsR, ANTsRCore, ITKR from github. The container is named `dorianps/antsr:latest` in your local machine. Estimated build time ~1.7hrs on Intel(R) Core(TM) i7-7660U CPU @ 2.50GHz.       
+*Note: this build step is not required to run the container, you can use the prepared container available in DockerHub (see below).*
 
 #### Run
 Double click the file:
@@ -26,7 +26,8 @@ Get all the files locally and run in command line:
 ```bash
 sh Build.antsr.linux.sh
 ```
-The script will build the ANTsR container on your machine using the latest ANTsR, ANTsRCore, ITKR from github. If you add the argument `--push` it will push the image online at the DockerHub registry (you can change your DockerHub username in the script). Estimated build time ~1hr on Intel(R) Xeon(R) Gold 6142 CPU @ 2.60GHz. Note, you don't need to build the container yourself, you can pull the container directly from DockerHub using the run script below.
+The script will build the ANTsR container on your machine using the latest ANTsR, ANTsRCore, ITKR from github. If you add the argument `--push` it will push the image online at the DockerHub registry (you can change your DockerHub username in the script). Estimated build time ~1hr on Intel(R) Xeon(R) Gold 6142 CPU @ 2.60GHz.      
+*Note: this build step is not required to run the container, you can use the prepared container available in DockerHub (see below).*
 
 #### Run
 ```bash
