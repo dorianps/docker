@@ -1,5 +1,5 @@
 # Docker images for ANTsR
-Contains the tools to promptly build and run a docker image with ANTsR installed. The RStudio GUI is accessed through the browser, and many developer tools are available so that new packages can be installed easily. The docker images built with these scripts are available in [DockerHub](https://hub.docker.com/u/dorianps).
+Contains tools to build or run docker containers with ANTsR installed. The RStudio GUI is accessed through the browser, and several developer tools are available so that other packages can be installed easily. The docker images themselves are available in [DockerHub](https://hub.docker.com/u/dorianps) and are downloaded automatically for new users.
 
 ## Linux
 #### Build
