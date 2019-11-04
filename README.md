@@ -53,7 +53,6 @@ The container you start with the above scripts will be stopped and deleted at th
 ### Will I be able to easily retrieve the data saved in the container?
 Not if you save the data in the container itself. Use the folder mounted from your host system to store files, you should see it in the container path:  `/home/rstudio/mydata`. Data saved there is actually saved on your computer and will not be deleted when the container is stopped.
 
-### How can I set the amount of CPUs and memory?
-By default, docker gives a container as much resources as available in the system; i.e., all CPUs and all memory available in the host computer. Use the flag `--cpus` to limit the number of CPU cores visible to the container (i.e., `--cpus=2.0` will make the container limit itself to using 2 CPU cores only). 
-In Windows, you first need to go in the Docker Settings > Advanced to set the overall limits of CPU, memory, and swap, to docker containers, then play with additional flags.
-To change memory limits and other flags, see the [docker documentation](https://docs.docker.com/config/containers/resource_constraints/).
+### How can I limit the amount of CPUs and memory used by the container?
+By default, docker gives every container an unlimited amount of resrouces in linux, that is, as much as available in the system. In Windows, docker is more limited in the resources that exposes to containers. The Windows Docker limits can be changed in Settings > Advanced.
+When running a container, the flag `--cpus` can be used to limit the number of CPU cores visible to the container (i.e., `--cpus=2.0` will make the container limit itself to using 2 CPU cores only). To change memory limits and other flags, see the [docker documentation](https://docs.docker.com/config/containers/resource_constraints/).
