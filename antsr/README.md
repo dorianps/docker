@@ -25,7 +25,7 @@ The script will build the ANTsR container on your machine using the latest ANTsR
 ## Q & A
 
 ### How do I check which ANTsR version is installed in the container?
-The following command will print the installed versions and git commits for ANTsR, ANTsRCore, ITKR:
+The following command will print the semantic versions and git commits for all relevant packages:
 ```
 docker run -u 0 --rm dorianps/antsr:latest Rscript /home/rstudio/.Rprofile
 ```
