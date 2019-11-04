@@ -39,7 +39,7 @@ You will see a command line prompt asking a couple of questions, then the browse
 ## Q & A
 
 ### How do I check which ANTsR version is installed in the container?
-The following command will print the exact commit installed for ANTsR, ANTsRCore, ITKR:
+The following command will print the installed versions and git commits for ANTsR, ANTsRCore, ITKR:
 ```
 docker run -u 0 --rm dorianps/antsr:latest Rscript /home/rstudio/.Rprofile
 ```
