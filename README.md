@@ -22,7 +22,7 @@ You will see a command line prompt asking a couple of questions, then the browse
 *You can use these scripts to build the container yourself if the online version is too old.*   
 ##### Windows: `Build.antsr.windows.bat` (double click)
 ##### Linux: `sh Build.antsr.linux.sh`
-The script will build the ANTsR container on your machine using the latest ANTsR, ANTsRCore, ITKR from github. If you add the argument `--push` in linux it will push the image online at the DockerHub registry (you can change your DockerHub username in the script). Estimated build time varies between ~1hr (Linux with Intel(R) Xeon(R) Gold 6142 CPU @ 2.60GHz) and 1.7hr (Windows with Intel(R) Core(TM) i7-7660U CPU @ 2.50GHz).
+The script will build the ANTsR container on your machine using the latest ANTsR, ANTsRCore, ITKR from github. The built image will be tagged `dorianps/antsr:latest`. If you add the argument `--push` in linux it will push the image online at the DockerHub registry (you can change the DockerHub username in the script). Built time depends on the machine: ~1hr in Linux with Intel(R) Xeon(R) Gold 6142 CPU @ 2.60GHz, or 1.7hr in Windows with Intel(R) Core(TM) i7-7660U CPU @ 2.50GHz.
 
 ---
 
