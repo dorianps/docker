@@ -41,4 +41,15 @@ The following command will print the exact commit installed for ANTsR, ANTsRCore
 docker run -u 0 --rm dorianps/antsr:latest Rscript /home/rstudio/.Rprofile
 ```
 
+### How do I keep my local images up to date?
+The docker image pulled from online will not be updated automatically. This means that DockerHub may have a more recent build. To get the most recent build type:
+```
+docker pull dorianps/antsr:latest
+```
+Note: unless you keep track of which build date the `:latest` tag refers to, you may see changes in results if you update the local container. To have reproducible results, don't work with `:latest` tag but with a specific container tag, i.e., `:20191104`.
 
+### I installed some software but they are gone when I start the container again.
+The docker image is the template used to start a container. The container started with the above scripts is stopped and removed at the end of the session. You can keep the container running or persist in your system by removing the flag `--rm`, but this will take space and CPU. The best way to build on top of the existing container is to create an image of your own after you make changes. This can be done very easily with a `docker commit` command. You can also save the docker image as a tar.gz file and load it on another computer. This means you can have your study-specific docker image that you work on.
+
+### Will I be able to easily retrieve the data saved in the container?
+No, use the folder mounted from your host system to store files. The above scripts will mount your local folder in `/home/rstudio/mydata`, you should see and save the data there, and they will be kept on your computer even when your docker session ends.
