@@ -46,7 +46,7 @@ The docker image pulled from online will not be updated automatically. This mean
 ```
 docker pull dorianps/antsr:latest
 ```
-Note: unless you keep track of which build date the `:latest` tag refers to, you may see changes in results if you update the local container. To have reproducible results, don't work with `:latest` tag but with a specific container tag, i.e., `:20191104`.
+Note: unless you keep track of which build date the `:latest` tag refers to, you may see changes in software behavior if you update the local `:latest` tag. To have reproducible results, don't work with `:latest` tag but with another specific tag, i.e., `:20191104`.
 
 ### I installed some software but they are gone when I start the container again.
 The docker image is the template used to start a container. The container started with the above scripts is stopped and removed at the end of the session. You can keep the container running or persist in your system by removing the flag `--rm`, but this will take space and CPU. The best way to build on top of the existing container is to create an image of your own after you make changes. This can be done very easily with a `docker commit` command. You can also save the docker image as a tar.gz file and load it on another computer. This means you can have your study-specific docker image that you work on.
