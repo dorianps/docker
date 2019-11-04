@@ -15,7 +15,8 @@ docker container run %VOLUMEMOUNT% -e PASSWORD=%MYPASSWORD% -p 8787:8787 -d --na
 echo "Browser will open shortly. Enter username: rstudio pass: %MYPASSWORD%"
 timeout 5
 rundll32 url.dll,FileProtocolHandler http://localhost:8787
-set /p dummy="Press enter to stop the antsr container..." \
+set /p dummy="Press enter to stop the container..."
+echo "Stopping container..."
 docker stop myantsr
 timeout 5
 exit /B
