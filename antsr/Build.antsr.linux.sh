@@ -17,7 +17,7 @@ docker tag ${USERNAME}/antsr:latest ${USERNAME}/antsr:${TAGVERSION}
 if [[ "$*" == "--push" ]]
 then
   # push the images in DockerHub registry
-  docker push ${USERNAME}/antsr:${TODAY}
+  docker push ${USERNAME}/antsr:${TAGVERSION}
   docker push ${USERNAME}/antsr:latest
 else
   echo "Skipping push to docker registry"
