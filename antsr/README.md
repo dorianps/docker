@@ -3,6 +3,8 @@ Contains tools to build or run docker containers with ANTsR, LINDA, or LESYMAP i
    
 *All the instructions below are valid if you go in the respective folder and substitute [antsr] with the other package name.*
 
+** You must have Docker installed to build and run docker images. In linux you can get docker-ce, in Windows you can get [Docker Desktop](https://www.docker.com/products/docker-desktop).
+
 ## Run
 ##### Windows: double click `Run.antsr.windows.bat`
 ##### Linux: `sh Run.antsr.linux.sh`
