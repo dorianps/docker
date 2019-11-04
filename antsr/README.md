@@ -14,7 +14,7 @@ After that, download the files from this repository on your computer.
 ## Run
 ##### Windows: double click `Run.antsr.windows.bat`
 ##### Linux: `sh Run.antsr.linux.sh`
-You will see a command line prompt asking a couple of questions, then the browser will open with the RStudio login page. When you are done, please press [enter] at the command line prompt to stop the ANTsR docker container. If you did not build the container yourself, it will be downloaded from DockerHub [~3Gb]. The container being started is the one with the tag `:latest`, which will contain the most up to date ANTsR build if you just downloaded it.
+You will see a command line prompt asking a couple of questions, then the browser will open with the RStudio login page. When you are done, please press [enter] at the command line window to stop the ANTsR docker container. If you are running this command the first time, it will be download the necessary docker image from DockerHub [~3Gb]. The docker image that will be used is the one with the tag `:latest`, which will contain the most up to date ANTsR build if you just downloaded it.
 
 ---
 
