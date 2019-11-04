@@ -45,7 +45,7 @@ docker run -u 0 --rm dorianps/antsr:latest Rscript /home/rstudio/.Rprofile
 ```
 
 ### Is the downloaded container updated automatically?
-No, to get the latest container from DockerHub and overwrite your local one run:
+No, to get the latest container from DockerHub (and overwrite your local one) run:
 ```
 docker pull dorianps/antsr:latest
 ```
