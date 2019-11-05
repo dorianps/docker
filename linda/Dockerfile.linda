@@ -1,0 +1,26 @@
+FROM dorianps/antsr:latest
+
+RUN \
+cat /etc/*release \
+&& echo "Building user:" `whoami` \
+&& echo "Number of cores:" $(nproc) \
+\
+&& START=$(date +%s) \
+\
+&& echo "Looking for latest LINDA tag..." \
+&& latesttag=$( curl --silent "https://api.github.com/repos/dorianps/LINDA/releases/latest" | grep '"tag_name":' | sed -E 's/.*"([^"]+)".*/\1/') \
+&& echo "Latest LINDA release: ${latesttag}" \
+&& latesturl="https://github.com/dorianps/LINDA/releases/download/${latesttag}/LINDA_v${latesttag}.zip" \
+&& echo "Downloading file: ${latesturl}" \
+&& wget ${latesturl} -O LINDA.zip -q \
+&& unzip -q LINDA.zip \
+&& Rscript -e "devtools::install_deps('./LINDA')" \
+&& R CMD INSTALL LINDA \
+&& rm -Rf LINDA* \
+\
+&& NOW=$(date +%s) && DIFF=$(( $NOW - $START )) && echo "Elapsed $DIFF seconds..." \
+\
+&& sed -i 's/dorianps\/antsr/dorianps\/linda/g' /etc/cont-init.d/userconf \
+&& echo "LINDA" >> /home/rstudio/.Rpackagedisplay \
+&& echo "suppressPackageStartupMessages(library(LINDA))" >> /home/rstudio/.Rprofile \
+&& chown -R rstudio:rstudio /home/rstudio/

@@ -1,0 +1,17 @@
+FROM dorianps/antsr:latest
+
+RUN \
+cat /etc/*release \
+&& echo "Building user:" `whoami` \
+&& echo "Number of cores:" $(nproc) \
+\
+&& START=$(date +%s) \
+\
+&& Rscript -e "devtools::install_github('dorianps/LESYMAP')" \
+\
+&& NOW=$(date +%s) && DIFF=$(( $NOW - $START )) && echo "Elapsed $DIFF seconds..." \
+\
+&& sed -i 's/dorianps\/antsr/dorianps\/lesymap/g' /etc/cont-init.d/userconf \
+&& echo "LESYMAP" >> /home/rstudio/.Rpackagedisplay \
+&& echo "suppressPackageStartupMessages(library(LESYMAP))" >> /home/rstudio/.Rprofile \
+&& chown -R rstudio:rstudio /home/rstudio/

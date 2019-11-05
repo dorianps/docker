@@ -1,12 +1,12 @@
 @echo off
 
-echo This script will start the antsr docker build
+echo This script will start the docker build
 
 timeout 15
 
 REM setup variables used later
 SET USERNAME=dorianps
-SET IMAGE=antsr
+SET IMAGE=lesymap
 SET TAGVERSION=%date:~10,4%%date:~4,2%%date:~7,2%
 SET BUILDDATE=%date%
 SET DOCKERFOLDER=%~dp0
