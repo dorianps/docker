@@ -5,7 +5,7 @@ Contains tools to build or run docker containers with pre-installed ANTsR, LINDA
 
 ---
 
-## Prepare
+## Requirement
 You must have Docker installed to build and run docker images. In linux you can get docker-ce, in Windows you can get [Docker Desktop](https://www.docker.com/products/docker-desktop).
 After that, download the files from this repository on your computer.
 
