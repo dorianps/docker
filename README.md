@@ -6,8 +6,11 @@ This repository contains tools to build and run docker containers with pre-insta
 ---
 
 ## Requirement
-You must have Docker installed to build and run docker images. In linux you can get docker-ce, in Windows you can get [Docker Desktop](https://www.docker.com/products/docker-desktop).
-After that, download the files from this repository on your computer.
+You must have Docker installed to build and run docker images.
+
+##### Windows: install [Docker Desktop](https://www.docker.com/products/docker-desktop).
+Docker Desktop works on Windows 10 Pro and Education, Windows Home users may need to install Docker in other ways. On some computers, you may need to enable Intel virtualization technology in BIOS, or allow firewall connections on port 445 to make local folders visible to the container.
+##### Linux: install `docker-ce`
 
 ---
 
