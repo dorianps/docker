@@ -18,7 +18,7 @@ Docker Desktop works on Windows 10 Pro and Education, Windows Home users may nee
 ## Run
 ##### Windows: `Run.antsr.windows.bat` (double click)
 ##### Linux: `sh Run.antsr.linux.sh`
-You will see a command line prompt asking a couple of questions, then the browser will open with the RStudio login page. When you are done, please press [enter] at the command line window to stop the ANTsR docker container. If you are running this command the first time, it will download the docker image from DockerHub [~800Mb]. The docker image with the tag `:latest` is the default image we use, it contains the most up to date ANTsR build if you just downloaded it.
+You will see a command line prompt asking a couple of questions, then the browser will open with the RStudio login page. When you are done, please press [enter] at the command line window to stop the ANTsR docker container. If you are running this command the first time, it will download the docker image from DockerHub [~800Mb]. The docker image with the tag `:latest` is the default image we use, it has the most recent ANTsR installation.
 
 ---
 
