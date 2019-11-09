@@ -17,7 +17,7 @@ BASEIMAGE=antsr
 docker pull ${USERNAME}/${BASEIMAGE}:latest
 
 # build the docker image, tag with today's date 
-docker build --label org.label-schema.version=${TAGVERSION} \
+docker build --pull --label org.label-schema.version=${TAGVERSION} \
 --label org.label-schema.build-date=${BUILDDATE} --rm -t ${USERNAME}/${IMAGE}:latest -f Dockerfile.${IMAGE} .
 docker tag ${USERNAME}/${IMAGE}:latest ${USERNAME}/${IMAGE}:${TAGVERSION}
 
