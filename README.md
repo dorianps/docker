@@ -58,7 +58,7 @@ The container you start with the above scripts will be stopped and deleted at th
 Not if you save the data in the container itself. Use the folder mounted from your host system to store files, you should see it in the container path:  `/home/rstudio/mydata`. Data saved there is actually saved on your computer and will not be deleted when the container is stopped.
 
 ### Is ANTsR slower when running in a docker container compared to running on a real computer?
-I have not tested ANTsR yet, but I have seen convincing evidence that processes running in containers are almost as fast as in the host system. This is different from virtual machines which run processes slower than the host system. This is also one of the reasons why containers have become popular: they are quick to start, they provide an isolated reproducible environment, and they run processes as fast as the host machine.
+No, my own test show completely equivalent performance of docker vs. host system. See test [here](https://stackoverflow.com/questions/21889053/what-is-the-runtime-performance-cost-of-a-docker-container).
 
 ### Is docker slower or faster than WSL when running ANTsR?
 Docker is faster then Windows Linux Subsystem. See the [quick test](https://github.com/dorianps/docker/wiki/Windows:-Docker-vs.-WSL-speed-test) performed on the same computer under the same conditions.
