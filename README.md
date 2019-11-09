@@ -61,7 +61,7 @@ Not if you save the data in the container itself. Use the folder mounted from yo
 No, my own test showed  equivalent performance of docker and host system on a linux machine. See test [here](https://github.com/dorianps/docker/wiki/Linux:-Docker-vs.-Host-System-speed-test).
 
 ### Is docker slower or faster than WSL when running ANTsR?
-Docker is faster then Windows Linux Subsystem. See the [quick test](https://github.com/dorianps/docker/wiki/Windows:-Docker-vs.-WSL-speed-test) performed on the same computer under the same conditions.
+Docker is faster than Windows Linux Subsystem. See the [quick test](https://github.com/dorianps/docker/wiki/Windows:-Docker-vs.-WSL-speed-test) performed on the same computer under the same conditions.
 
 ### How can I limit the amount of CPUs and memory used by the container?
 By default, docker gives every container an unlimited amount of resources in linux. If your machine has 30 CPU cores, the container will see 30 CPU cores.     
