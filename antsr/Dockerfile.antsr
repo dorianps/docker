@@ -16,7 +16,7 @@ cat /etc/*release \
 && START=$(date +%s) \
 \
 && apt-get install -f \
-&& apt update && apt upgrade -y \
+&& apt update \
 \
 && NOW=$(date +%s) && DIFF=$(( $NOW - $START )) && echo "Elapsed $DIFF seconds..." \
 \
