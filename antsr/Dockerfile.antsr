@@ -30,6 +30,7 @@ libssl-dev \
 libcurl4-gnutls-dev \
 libssh2-1-dev \
 libgit2-dev \
+libv8-dev \
 \
 && NOW=$(date +%s) && DIFF=$(( $NOW - $START )) && echo "Elapsed $DIFF seconds..." \
 \
@@ -38,7 +39,7 @@ libgit2-dev \
 && rm -Rf cmake* \
 && Rscript -e "install.packages('devtools')" \
 && NOW=$(date +%s) && DIFF=$(( $NOW - $START )) && echo "Elapsed $DIFF seconds..." \
-&& Rscript -e "install.packages(c('misc3d', 'pixmap'))" \
+&& Rscript -e "install.packages(c('misc3d', 'pixmap', 'colormap'))" \
 && NOW=$(date +%s) && DIFF=$(( $NOW - $START )) && echo "Elapsed $DIFF seconds..." \
 && Rscript -e "devtools::install_github('ANTsX/ANTsR')" \
 \
