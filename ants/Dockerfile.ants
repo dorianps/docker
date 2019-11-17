@@ -42,7 +42,9 @@ RUN apt-get update \
 && echo "export ANTSPATH=/opt/ANTs/bin/" >> ~/.bashrc \
 && echo "export PATH=\${ANTSPATH}:\$PATH" >> ~/.bashrc \
 && echo "export ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=\$(nproc)" >> ~/.bashrc \
-&& echo "cd /mydata" >> ~/.bashrc
+&& echo "cd /mydata" >> ~/.bashrc \
+&& echo "echo ANTs installed:"  >> ~/.bashrc \
+&& echo "cat /opt/ANTs/commit.log && echo $(date)" >> ~/.bashrc 
 
 CMD ["/bin/bash"]
 
