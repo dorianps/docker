@@ -1,0 +1,48 @@
+FROM ubuntu:16.04 AS antsbuild
+
+RUN apt-get update \
+&& apt install -y \
+  git \
+  wget \
+  g++ \
+  gcc \
+  make \
+  zlib1g-dev \
+\
+&& wget https://github.com/Kitware/CMake/releases/download/v3.15.5/cmake-3.15.5-Linux-x86_64.sh \
+&& sh cmake-3.15.5-Linux-x86_64.sh --skip-license \
+\
+&& git clone https://github.com/ANTsX/ANTs.git \
+\
+&& mkdir antsbuild \
+&& cd antsbuild/ \
+&& cmake -DCMAKE_INSTALL_PREFIX=/opt/ANTs/ ../ANTs/ \
+&& make -j $(( $(nproc)/2 )) 2>&1 | tee build.log \
+&& cd ANTS-build/ \
+&& make install 2>&1 | tee install.log  \
+\
+&& cd /ANTs \
+&& git rev-parse HEAD > /opt/ANTs/commit.log \
+&& cp /antsbuild/build.log /opt/ANTs/ \
+&& cp /antsbuild/ANTS-build/install.log /opt/ANTs/
+
+FROM ubuntu:16.04 AS antscopy
+
+LABEL maintainer="Dorian Pustina"
+LABEL org.label-schema.maintainer="Dorian Pustina"
+LABEL org.label-schema.url="https://github.com/ANTsX/ANTs"
+LABEL org.label-schema.vcs-url="https://github.com/ANTsX/ANTs"
+LABEL org.label-schema.vendor=""
+
+COPY --from=antsbuild /opt/ANTs /opt/ANTs
+RUN apt-get update \
+&& apt install -y zlib1g-dev \
+\
+&& mkdir /mydata \
+&& echo "export ANTSPATH=/opt/ANTs/bin/" >> ~/.bashrc \
+&& echo "export PATH=\${ANTSPATH}:\$PATH" >> ~/.bashrc \
+&& echo "export ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=\$(nproc)" >> ~/.bashrc \
+&& echo "cd /mydata" >> ~/.bashrc
+
+CMD ["/bin/bash"]
+
