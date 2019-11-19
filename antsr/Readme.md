@@ -17,6 +17,17 @@ ANTSPATH:               /opt/ANTs/bin/
 
 ----
 
+### Build your own container
+*You can use the provided scripts to build the container yourself, if needed.*   
+##### Windows: `Build.ants.windows.bat` (double click)
+##### Linux: `sh Build.ants.linux.sh`
+
+Yes, you can build ANTs directly from Windows and use it there, using docker.
+
+---- 
+
+# Q & A
+   
 #### How to start the container without a script?
 ```
 docker run --rm -it -v /PATH/TO/LOCAL/FOLDER:/mydata dorianps/ants:latest
