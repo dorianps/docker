@@ -25,7 +25,7 @@ ANTSPATH:               /opt/ANTs/bin/
 ##### Windows: `Build.ants.windows.bat` (double click)
 ##### Linux: `sh Build.ants.linux.sh`
 
-Yes, you can build ANTs directly from Windows and use it there, using docker.
+Yes, you can build ANTs directly in Windows and use it there, using docker.
 
 ---- 
 
