@@ -1,5 +1,5 @@
 ## Step 1: install docker
-See instructions in [homepage](../Readme.md)
+See instructions in [homepage](https://github.com/dorianps/docker)
 
 ----
 
