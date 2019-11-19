@@ -35,7 +35,7 @@ The script will build the ANTsR container on your machine using the latest ANTsR
 
 #### How to start the container without a script?
 ```
-docker container run -v /PATH/TO/LOCAL/FOLDER:/home/rstudio/mydata -e PASSWORD=[YOURPASSWORDHERE] -p 8787:8787 -d --rm dorianps/antsr:latest 
+docker container run -v /PATH/TO/LOCAL/FOLDER:/home/rstudio/mydata -e PASSWORD=[YOURPASSWORDHERE] -p 8787:8787 --rm dorianps/antsr:latest 
 ```
 
 #### How do I check which ANTsR version is installed in the container?
