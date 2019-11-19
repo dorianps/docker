@@ -33,16 +33,16 @@ The script will build the ANTsR container on your machine using the latest ANTsR
 
 # Q & A
 
-### How do I check which ANTsR version is installed in the container?
+#### How do I check which ANTsR version is installed in the container?
 The following command will print the semantic versions and git commits for all relevant packages:
 ```
 docker run --rm dorianps/antsr:latest Rscript /home/rstudio/.Rprofile
 ```
 
-### Is the downloaded container updated automatically?
+#### Is the downloaded container updated automatically?
 No, the local docker image you get the first time will not be updated automatically.
 
-### How do I update the local docker image?
+#### How do I update the local docker image?
 To get the latest docker image from DockerHub (and overwrite your local one) run:
 ```
 docker pull dorianps/antsr:latest
@@ -51,16 +51,16 @@ The command will download the container only if there is a newer version.
     
 *Note: The container with the tag `:latest` available online may contain an ANTsR version different from what you have in your local `:latest` container. This means that the analyses may not produce the same results after you pull the latest update. To have reproducible results use a specific tag during a study conduct (i.e., `dorianps/antsr:20191104`) or avoid updating the `:latest` container.*
 
-### I installed other packages but can't find them after restarting the container!
+#### I installed other packages but can't find them after restarting the container!
 The container you start with the above scripts will be stopped and deleted at the end of the session. A fresh container is started each time you run the script. If you want to keep your old container, remove the `--rm` flag in the call; you will need to stop and start the container manually after that (i.e., `docker container start myantsr`). However, the best practice is to create another docker image from the container you are using. This can be done easily with the `docker commit` command (google it). You can also save your docker image as a tar.gz file and load it later on another computer. This means you can have your study-specific docker image, install what you need on it, and keep the image file with your data to reproduce the study in the future.
 
-### Will I be able to easily retrieve the data saved in the container?
+#### Will I be able to easily retrieve the data saved in the container?
 Not if you save the data in the container itself. Use the folder mounted from your host system to store files, you should see it in the container path:  `/home/rstudio/mydata`. Data saved there is actually saved on your computer and will not be deleted when the container is stopped.
 
-### Is ANTsR slower when running in a docker container compared to running on a real computer?
+#### Is ANTsR slower when running in a docker container compared to running on a real computer?
 No, my own test showed  equivalent performance of docker and host system on a linux machine. See test [here](https://github.com/dorianps/docker/wiki/Linux:-Docker-vs.-Host-System-speed-test).
 
-### Is docker slower or faster than WSL when running ANTsR?
+#### Is docker slower or faster than WSL when running ANTsR?
 Docker is faster than Windows Linux Subsystem. See this [quick test](https://github.com/dorianps/docker/wiki/Windows:-Docker-vs.-WSL-speed-test) using LESYMAP.
 
 ### How can I limit the amount of CPUs and memory used by the container?
