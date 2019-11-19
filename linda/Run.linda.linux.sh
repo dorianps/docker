@@ -12,7 +12,7 @@ read -p "Do you want to mount a folder in the container [y/n]" -n 1 -r
 echo    # (optional) move to a new line
 if [[ ! $REPLY =~ ^[Nn]$ ]]
 then
-    read -p "Eneter a folder to mount in the container: " FOLDER
+    read -p "Enter a folder to mount in the container: " FOLDER
     VOLUMEMOUNT="-v $FOLDER:/home/rstudio/mydata"
 fi
 
