@@ -9,7 +9,7 @@ See instructions in [homepage](https://github.com/dorianps/docker)
 ## Step 2: run the container
 ##### Windows: `Run.ants.windows.bat` (double click)
 ##### Linux: `sh Run.ants.linux.sh`
-You will see a command line prompt asking a couple of questions, and will see the prompt of the container. Some info on the ANTs version installed will appear.
+You will see a prompt asking a couple of questions, and then will go the prompt of the container. Some info on which ANTs is installed will appear:
 ```
 ----------------- ANTs environment ---------------
 ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS:   2
