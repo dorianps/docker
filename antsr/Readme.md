@@ -24,3 +24,6 @@ docker run --rm -it -v /PATH/TO/LOCAL/FOLDER:/mydata dorianps/ants:latest
 
 #### How do I stop the container?
 Simply type "exit"; the container is removed when you exit because is started with the `--rm` flag 
+
+#### Where is my folder data in the container?
+If you use the scripts, your local folder is mounter in `/mydata`.
