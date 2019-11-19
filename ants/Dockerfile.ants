@@ -34,21 +34,25 @@ LABEL org.label-schema.url="https://github.com/ANTsX/ANTs"
 LABEL org.label-schema.vcs-url="https://github.com/ANTsX/ANTs"
 LABEL org.label-schema.vendor=""
 
-COPY --from=antsbuild /opt/ANTs /opt/ANTs
+COPY --from=antsbuild /opt/ANTs/bin /opt/ANTs/bin
+COPY --from=antsbuild /opt/ANTs/commit.log /opt/ANTs/commit.log
+COPY --from=antsbuild /opt/ANTs/build.log /opt/ANTs/build.log
+COPY --from=antsbuild /opt/ANTs/install.log /opt/ANTs/install.log
+
 RUN apt-get update \
 && apt install -y zlib1g-dev \
 \
 && mkdir /mydata \
-&& echo "export ANTSPATH=/opt/ANTs/bin/" >> ~/.bashrc \
-&& echo "export PATH=\${ANTSPATH}:\$PATH" >> ~/.bashrc \
-&& echo "export ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=\$(nproc)" >> ~/.bashrc \
-&& echo "cd /mydata" >> ~/.bashrc \
-&& echo "echo ----------------- ANTs environment ---------------" >> ~/.bashrc \
-&& echo "echo -e \"ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS:\t\$ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS\" " >> ~/.bashrc \
-&& echo "echo -e \"ANTs git commit:\t\$(cat /opt/ANTs/commit.log)\" " >> ~/.bashrc \
-&& echo "echo -e \"ANTs build date:\t\$(date)\" " >> ~/.bashrc \
-&& echo "echo -e \"ANTSPATH:\t\t\$ANTSPATH\" " >> ~/.bashrc \
-&& echo "echo ''"  >> ~/.bashrc 
+&& echo "export ANTSPATH=/opt/ANTs/bin/" >> /etc/bash.bashrc \
+&& echo "export PATH=\${ANTSPATH}:\$PATH" >> /etc/bash.bashrc \
+&& echo "export ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=\$(nproc)" >> /etc/bash.bashrc \
+&& echo "cd /mydata" >> /etc/bash.bashrc \
+&& echo "echo ----------------- ANTs environment ---------------" >> /etc/bash.bashrc \
+&& echo "echo -e \"ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS:\t\$ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS\" " >> /etc/bash.bashrc \
+&& echo "echo -e \"ANTs git commit:\t\$(cat /opt/ANTs/commit.log)\" " >> /etc/bash.bashrc \
+&& echo "echo -e \"ANTs build date:\t\$(date)\" " >> /etc/bash.bashrc \
+&& echo "echo -e \"ANTSPATH:\t\t\$ANTSPATH\" " >> /etc/bash.bashrc \
+&& echo "echo ''"  >> /etc/bash.bashrc
 
 
 CMD ["/bin/bash"]
