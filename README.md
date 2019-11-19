@@ -1,29 +1,29 @@
 # Docker images for ANTsR / LINDA / LESYMAP
 This repository contains tools to build and run docker containers with pre-installed ANTsR, LINDA, or LESYMAP R packages. The RStudio GUI is accessed through the browser, and several other developer tools are integrated. The docker images are build locally on your computer and optionally pushed in [DockerHub](https://hub.docker.com/u/dorianps).
      
-*The instructions below are valid for every package in the subfolders; just replace [antsr] with another package name.*
+*Replace "antsr" with other package names below as needed.*
 
 ---
 
-## Requirement
-You must have Docker installed to build and run docker images.
+## Step 1: Install docker
 
 ##### Windows: install [Docker Desktop](https://www.docker.com/products/docker-desktop).
 Docker Desktop works on Windows 10 Pro and Education, Windows Home users may need to install Docker in other ways. On some computers, you may need to enable Intel Virtualization Technology in BIOS, or allow the firewall for local connections on port 445 to share local folders with the container.
     
 ##### Linux: install `docker-ce`
+Instructions for: [CentOS](https://docs.docker.com/install/linux/docker-ce/centos/), [Ubuntu](https://docs.docker.com/install/linux/docker-ce/ubuntu/), [Fedora](https://docs.docker.com/install/linux/docker-ce/fedora/), [Debian](https://docs.docker.com/install/linux/docker-ce/debian/)    
 
 ---
 
-## Run
+## Step 2: Run the container
 ##### Windows: `Run.antsr.windows.bat` (double click)
 ##### Linux: `sh Run.antsr.linux.sh`
 You will see a command line prompt asking a couple of questions, then the browser will open with the RStudio login page. When you are done, please press [enter] at the command line window to stop the ANTsR docker container. If you are running this command the first time, it will download the docker image from DockerHub [~800Mb]. The docker image with the tag `:latest` is the default image we use, it has the most recent ANTsR installation.
 
 ---
 
-## Build
-*You can use these scripts to build the container yourself if the online version is too old.*   
+### Build your own container
+*You can use the provided scripts to build the container yourself, if needed.*   
 ##### Windows: `Build.antsr.windows.bat` (double click)
 ##### Linux: `sh Build.antsr.linux.sh`
 The script will build the ANTsR container on your machine using the latest ANTsR, ANTsRCore, ITKR from github. The built image will be tagged `dorianps/antsr:latest`. If you add the argument `--push` in linux it will push the image online at the DockerHub registry (you can change the DockerHub username in the script). Built time depends on the machine: ~1hr in Linux with Intel(R) Xeon(R) Gold 6142 CPU @ 2.60GHz, or 1.7hr in Windows with Intel(R) Core(TM) i7-7660U CPU @ 2.50GHz.
