@@ -1,4 +1,5 @@
 # Docker container ANTs
+Quick guide how to run it.
 
 ## Step 1: install docker
 See instructions in [homepage](https://github.com/dorianps/docker)
