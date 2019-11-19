@@ -1,4 +1,4 @@
-# Docker images for ANTsR / LINDA / LESYMAP
+# Docker containers for ANTsR / LINDA / LESYMAP
 This repository contains tools to build and run docker containers with pre-installed ANTsR, LINDA, or LESYMAP R packages. The RStudio GUI is accessed through the browser, and several other developer tools are integrated. The docker images are build locally on your computer and optionally pushed in [DockerHub](https://hub.docker.com/u/dorianps).
      
 *Replace "antsr" with other package names below as needed.*
