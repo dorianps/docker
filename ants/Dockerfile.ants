@@ -16,7 +16,7 @@ RUN apt-get update \
 \
 && mkdir antsbuild \
 && cd antsbuild/ \
-&& cmake -DCMAKE_INSTALL_PREFIX=/opt/ANTs/ ../ANTs/ \
+&& cmake -DBUILD_SHARED_LIBS=ON -DCMAKE_INSTALL_PREFIX=/opt/ANTs/ ../ANTs/ \
 && make -j $(( $(nproc)/2 )) 2>&1 | tee build.log \
 && cd ANTS-build/ \
 && make install 2>&1 | tee install.log  \
@@ -34,16 +34,14 @@ LABEL org.label-schema.url="https://github.com/ANTsX/ANTs"
 LABEL org.label-schema.vcs-url="https://github.com/ANTsX/ANTs"
 LABEL org.label-schema.vendor=""
 
-COPY --from=antsbuild /opt/ANTs/bin /opt/ANTs/bin
-COPY --from=antsbuild /opt/ANTs/commit.log /opt/ANTs/commit.log
-COPY --from=antsbuild /opt/ANTs/build.log /opt/ANTs/build.log
-COPY --from=antsbuild /opt/ANTs/install.log /opt/ANTs/install.log
+COPY --from=antsbuild /opt/ANTs /opt/ANTs
 
 RUN apt-get update \
 && apt install -y zlib1g-dev \
 \
 && mkdir /mydata \
 && echo "export ANTSPATH=/opt/ANTs/bin/" >> /etc/bash.bashrc \
+&& echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:/opt/ANTs/lib/" >> /etc/bash.bashrc \
 && echo "export PATH=\${ANTSPATH}:\$PATH" >> /etc/bash.bashrc \
 && echo "export ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=\$(nproc)" >> /etc/bash.bashrc \
 && echo "cd /mydata" >> /etc/bash.bashrc \
