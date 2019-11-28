@@ -36,15 +36,16 @@ LABEL org.label-schema.vendor=""
 
 COPY --from=antsbuild /opt/ANTs /opt/ANTs
 
+ENV PATH="/opt/ANTs/bin:${PATH}"
+ENV LD_LIBRARY_PATH=/opt/ANTs/lib/:${LD_LIBRARY_PATH}
+ENV ANTSPATH=/opt/ANTs/bin/
+
 RUN apt-get update \
 && apt install -y zlib1g-dev \
 \
-&& mkdir /mydata \
-&& echo "export ANTSPATH=/opt/ANTs/bin/" >> /etc/bash.bashrc \
-&& echo "export LD_LIBRARY_PATH=\$LD_LIBRARY_PATH:/opt/ANTs/lib/" >> /etc/bash.bashrc \
-&& echo "export PATH=\${ANTSPATH}:\$PATH" >> /etc/bash.bashrc \
+&& useradd -m -s /bin/bash -d /mydata antsuser \
+\
 && echo "export ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS=\$(nproc)" >> /etc/bash.bashrc \
-&& echo "cd /mydata" >> /etc/bash.bashrc \
 && echo "echo ----------------- ANTs environment ---------------" >> /etc/bash.bashrc \
 && echo "echo -e \"ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS:\t\$ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS\" " >> /etc/bash.bashrc \
 && echo "echo -e \"ANTs git commit:\t\$(cat /opt/ANTs/commit.log)\" " >> /etc/bash.bashrc \
@@ -52,6 +53,8 @@ RUN apt-get update \
 && echo "echo -e \"ANTSPATH:\t\t\$ANTSPATH\" " >> /etc/bash.bashrc \
 && echo "echo ''"  >> /etc/bash.bashrc
 
+USER antsuser
+WORKDIR /mydata
 
 CMD ["/bin/bash"]
 
