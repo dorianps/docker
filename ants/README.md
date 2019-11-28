@@ -1,5 +1,5 @@
 # Docker container with ANTs
-ANTs is a comprehensive suite for processing (neuro)imaging data (nifti, dicom, ...).   
+ANTs is a comprehensive suite for processing (neuro)imaging data (homepage [here](https://github.com/ANTsX/ANTs)).   
 Quick guide how to run the docker container.
 
 ## Step 1: install docker
