@@ -10,7 +10,7 @@ See instructions in [homepage](https://github.com/dorianps/docker)
 ## Step 2: run the container
 ##### Windows: `Run.ants.windows.bat` (double click)
 ##### Linux: `sh Run.ants.linux.sh`
-You will see a prompt asking a couple of questions, and then will go the prompt of the container. Some info on which ANTs is installed will appear:
+You will be asked about some settings and then you will see the prompt inside the container itself. The information on ANTs version will show as below:
 ```
 ----------------- ANTs environment ---------------
 ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS:   2
@@ -22,11 +22,11 @@ ANTSPATH:               /opt/ANTs/bin/
 ----
 
 ### Build your own container
-*You can use the provided scripts to build the container yourself, if needed.*   
+*You can use the provided scripts to build the container on your local machine.*   
 ##### Windows: `Build.ants.windows.bat` (double click)
 ##### Linux: `sh Build.ants.linux.sh`
 
-Yes, you can build ANTs directly in Windows and use it there, using docker.
+Yes, you can build ANTs directly in Windows and use it there, through docker.
 
 ---- 
 
@@ -38,7 +38,7 @@ docker run --rm -it -v /PATH/TO/LOCAL/FOLDER:/mydata dorianps/ants:latest
 ```
 
 #### How do I stop the container?
-Simply type "exit"; the container is removed when you exit because is started with the `--rm` flag 
+Simply type "exit"; the container is removed when you exit because it is started with the `--rm` flag 
 
 #### Where is my folder data in the container?
 If you use the scripts, your local folder is mounted at `/mydata`.
