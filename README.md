@@ -68,7 +68,7 @@ No, my own test showed  equivalent performance of docker and host system on a li
 #### Is docker slower or faster than WSL when running ANTsR?
 Docker is faster than Windows Linux Subsystem. See this [quick test](https://github.com/dorianps/docker/wiki/Windows:-Docker-vs.-WSL-speed-test) using LESYMAP.
 
-### How can I limit the amount of CPUs and memory used by the container?
+#### How can I limit the amount of CPUs and memory used by the container?
 By default, docker gives every container an unlimited amount of resources in linux. If your machine has 30 CPU cores, the container will see 30 CPU cores.     
 In Windows, docker has more resource restrictions, you can set it to use all the available CPUs, but is not enabled by default. Also, you cannot assign to docker the entire memory in Windows. To change the Windows settings go to Docker > Settings > Advanced.    
 Running a container with unlimited resources can sometimes be a problem. An `antsRegistration` call is capable of using all your CPU resources. To run a container with a limited number CPU cores, use the flag `--cpus`; e.g., `--cpus=2.0` will make the container see 2 CPU cores. Inside the containers built for ANTsR, we also set the variable `ITK_GLOBAL_DEFAULT_NUMBER_OF_THREADS` to the available number of CPUs [`$(nproc)`]. The available number of CPUs is displayed when RStudio starts.     
