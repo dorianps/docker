@@ -37,7 +37,7 @@ docker run --rm -it -v /PATH/TO/LOCAL/FOLDER:/home/itksnap/mydata dorianps/itksn
 Just close the ITKsnap window; the container is removed when you exit because it is started with the `--rm` flag. 
 
 #### Nothing appears when I load an image, and I see errors on the  terminal.
-If ITKsnap opens but you don't see the data you loaded, and you see errors like 
-`QGLContext::makeCurrent(): Cannot make invalid context current` in the terminal, 
-there might be an OpenGL problem on your computer. If you are using MobaXterm, 
-try setting the OpenGL acceleration to Software in `Settings -> X11 -> OpenGL acceleration`.
+If ITKsnap opens but you don't see the data you loaded, and you see errors in the terminal like 
+`QGLContext::makeCurrent(): Cannot make invalid context current`, 
+there might be an OpenGL issue on your X-server. If you are using MobaXterm, 
+try changing `Settings -> X11 -> OpenGL acceleration` to `Software`.
