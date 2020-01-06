@@ -1,6 +1,6 @@
 @echo off
 
-echo This script will start the antsr docker build
+echo This script will start the ants docker build
 
 timeout 15
 
