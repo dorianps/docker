@@ -9,7 +9,7 @@ See instructions in [homepage](https://github.com/dorianps/docker)
 ----
 
 ## Step 2: Make sure you have an X-server installed
-Linux and Mac should have an X-server. On Windows, I reccommend [MobaXterm](https://mobaxterm.mobatek.net/) which a nice suite with X-server inluded.
+Linux and Mac should already have an X-server. On Windows, I reccommend [MobaXterm](https://mobaxterm.mobatek.net/) which a nice suite with X-server inluded.
 
 ----
 
