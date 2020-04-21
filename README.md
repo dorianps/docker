@@ -52,7 +52,7 @@ To get the latest docker image from DockerHub (and overwrite your local one) run
 ```
 docker pull dorianps/antsr:latest
 ```
-The command will download the container only if there is a newer version.
+The command will download the container only if there is a newer build (note, a new build does not necessarily contain a new version of the software, it's just a newer build of the entire container).
     
 *Note: The container with the tag `:latest` available online may contain an ANTsR version different from what you have in your local `:latest` container. This means that the analyses may not produce the same results after you pull the latest update. To have reproducible results use a specific tag during a study conduct (i.e., `dorianps/antsr:20191104`) or avoid updating the `:latest` container.*
 
